@@ -45,10 +45,7 @@ class _SignupPageState extends State<SignupPage> {
         resizeToAvoidBottomPadding: false,
         body: Container(
            decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/fotoMuseu.jpg"),
-              fit: BoxFit.cover,
-            ),
+            color: Colors.amber[300]
           ),
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
             Widget>[
@@ -60,11 +57,14 @@ class _SignupPageState extends State<SignupPage> {
                   child: Text(
                     'Cadastro',
                     style:
-                        TextStyle(fontSize: 80.0, fontWeight: FontWeight.bold),
+                        TextStyle(fontSize: 80.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Montserrat',
+                        ),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(325.0, 120.0, 0.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(350.0, 120.0, 0.0, 0.0),
                   child: Text(
                     '.',
                     style: TextStyle(
@@ -130,12 +130,13 @@ class _SignupPageState extends State<SignupPage> {
                           },
                             child: Text('Cadastre-se',
                             style: TextStyle(
-                            fontFamily: 'Montserrat',
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
+                              color: Colors.grey[300],
+                              fontFamily: 'Montserrat',
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
-                          color: Colors.orange,
+                          color: Colors.black,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                         ),
@@ -152,12 +153,13 @@ class _SignupPageState extends State<SignupPage> {
                           },
                             child: Text('Voltar',
                             style: TextStyle(
-                            fontFamily: 'Montserrat',
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
+                              color: Colors.grey[300],
+                              fontFamily: 'Montserrat',
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
-                          color: Colors.orange,
+                          color: Colors.black,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                         ),
