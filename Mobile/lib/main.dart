@@ -62,10 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
         resizeToAvoidBottomPadding: false,
         body: Container(
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/fotoMuseu.jpg"),
-              fit: BoxFit.cover,
-            ),
+            color: Colors.amber[300],
           ),
           child:
           Column(
@@ -79,7 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
                     child: Text('Inova',
                         style: TextStyle(
-                            fontSize: 80.0, fontWeight: FontWeight.bold
+                            fontSize: 80.0, 
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Montserrat',
                           )
                         ),
                     ),
@@ -87,7 +86,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.fromLTRB(16.0, 175.0, 0.0, 0.0),
                     child: Text('Museu',
                         style: TextStyle(
-                            fontSize: 80.0, fontWeight: FontWeight.bold
+                            fontSize: 80.0, 
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Montserrat',
                           )
                         ),
                      ),
@@ -107,12 +108,13 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text('Visite o Museu!',
               style: TextStyle(
+                color: Colors.grey[350],
                 fontFamily: 'Montserrat',
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
                 ),
               ),
-              color: Colors.orange,
+              color: Colors.black,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
@@ -140,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(
                     'Cadastro',
                     style: TextStyle(
-                        color: Colors.yellow[400],
+                        color: Colors.blueAccent,
                         fontSize: 20,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w700,
