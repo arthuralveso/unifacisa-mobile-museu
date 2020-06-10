@@ -18,7 +18,7 @@ class _GaleriaState extends State<Galeria> {
 
 
   Future<String> getBeacons() async {
-    String url = 'http://192.168.15.15:3000/beacons/';
+    String url = 'http://192.168.15.14:3000/beacons/';
     final response = 
     await http.get(url + '$_id');
 
@@ -148,4 +148,3 @@ class _GaleriaState extends State<Galeria> {
     this.getBeacons();
   }
 }
-

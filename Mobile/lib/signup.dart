@@ -33,7 +33,7 @@ class _SignupPageState extends State<SignupPage> {
     initDeviceId();
 
     BaseOptions options = new BaseOptions(
-      baseUrl: 'http://192.168.15.15:3000',
+      baseUrl: 'http://192.168.15.14:3000',
       connectTimeout: 5000,
     );
 
