@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class Galeria extends StatefulWidget {
+class Content extends StatefulWidget {
   @override
-  _GaleriaState createState() => _GaleriaState();
+  _ContentState createState() => _ContentState();
 }
 
-class _GaleriaState extends State<Galeria> {
+class _ContentState extends State<Content> {
   var _title;
   var _content;
   var _photo;

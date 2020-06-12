@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:device_id/device_id.dart';
+import 'package:museu/pages/busca.dart';
+import 'package:museu/pages/content.dart';
+import 'package:museu/pages/register.dart';
 
 
-import 'signup.dart';
-import 'artes.dart';
+
 
 void main() => runApp(new MyApp());
 
@@ -16,8 +18,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Inova Museu',
       routes: <String, WidgetBuilder>{
-        '/signup': (BuildContext context) => new SignupPage(),
-        '/login' : (BuildContext context) => new Galeria()
+        '/register': (BuildContext context) => new Register(),
+        '/content' : (BuildContext context) => new Content(),
+        '/search' : (BuildContext context) => new Search()
       },
       home: new MyHomePage(),
     );
@@ -164,11 +167,11 @@ class _MyHomePageState extends State<MyHomePage> {
   void login() async {
     try {
       await _dio.post("/guestsessions", data: {"guest_id" : _info});
-      Navigator.of(context).pushNamed('/login');
+      Navigator.of(context).pushNamed('/search');
 
     } catch (err) {
       print(err);
-      Navigator.of(context).pushNamed('/signup');
+      Navigator.of(context).pushNamed('/register');
     }
   }
 }

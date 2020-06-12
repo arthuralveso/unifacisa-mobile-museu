@@ -3,14 +3,14 @@ import 'package:dio/dio.dart';
 import 'package:device_id/device_id.dart';
 
 
-class SignupPage extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _SignupPageState createState() {
-    return _SignupPageState();
+  _RegisterState createState() {
+    return _RegisterState();
   }
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _RegisterState extends State<Register> {
   String _info = "";
 
   Future<void> initDeviceId() async {
