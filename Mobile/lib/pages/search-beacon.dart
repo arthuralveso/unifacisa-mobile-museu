@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'package:beacons_plugin/beacons_plugin.dart';
@@ -16,7 +15,7 @@ class Search extends StatelessWidget {
   final StreamController<String> beaconEventsController = StreamController<String>();
 
 
-Future<void> initPlatformState(BuildContext context) async {
+Future<void> listeningBeacons(BuildContext context) async {
     BeaconsPlugin.listenToBeacons(beaconEventsController);
     Stream beacons = beaconEventsController.stream;
 
@@ -26,6 +25,7 @@ Future<void> initPlatformState(BuildContext context) async {
             var beaconData = jsonDecode(data);
 
             await getBeaconById(context, beaconData['uuid']);
+            print(beaconData['uuid']);
           }
         },
         onDone: () {},
@@ -49,22 +49,35 @@ Future<void> initPlatformState(BuildContext context) async {
   Future getBeaconById(BuildContext cntext, String id) async {
     // await BeaconsPlugin.stopMonitoring;
 
-    Beacon founded = await beaconController.getBeaconById(id);
+    Beacon found = await beaconController.getBeaconById(id);
 
     beaconEventsController.close();
 
     Navigator.push(
         cntext,
         MaterialPageRoute(
-            builder: (context) => Content(beacon: founded)));
+            builder: (context) => Content(beacon: found)));
   }
 
   @override
   Widget build(BuildContext context) {
-    initPlatformState(context);
+    listeningBeacons(context);
     return Scaffold(
       backgroundColor: Colors.amber[300],
-      
+      body: Center(
+        child: Ink(
+          decoration: const ShapeDecoration(
+            color: Colors.black,
+            shape: CircleBorder(),
+          ),
+          child: IconButton(
+            icon: Icon(Icons.search),
+            color: Colors.white,
+            iconSize: 50,
+            onPressed: () {},
+          ),
+        )
+      )
     );
   }
 }

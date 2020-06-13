@@ -33,7 +33,7 @@ class _RegisterState extends State<Register> {
     initDeviceId();
 
     BaseOptions options = new BaseOptions(
-      baseUrl: 'http://3840b0b14b42.ngrok.io',
+      baseUrl: 'http://192.168.15.14:3333',
       connectTimeout: 5000,
     );
 
