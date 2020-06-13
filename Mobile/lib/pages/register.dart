@@ -33,7 +33,7 @@ class _RegisterState extends State<Register> {
     initDeviceId();
 
     BaseOptions options = new BaseOptions(
-      baseUrl: 'http://192.168.15.14:3000',
+      baseUrl: 'http://3840b0b14b42.ngrok.io',
       connectTimeout: 5000,
     );
 
@@ -187,6 +187,6 @@ class _RegisterState extends State<Register> {
         _email.text = "";
       });
       await _dio.post("/guestsessions", data: {"guest_id" : _info});
-      Navigator.of(context).pushNamed('/login');
+      Navigator.of(context).pushNamed('/search');
   }
 }

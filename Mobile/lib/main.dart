@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:device_id/device_id.dart';
-import 'package:museu/pages/busca.dart';
+import 'package:museu/pages/search-beacon.dart';
 import 'package:museu/pages/content.dart';
 import 'package:museu/pages/register.dart';
 
@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
     initDeviceId();
 
     BaseOptions options = new BaseOptions(
-      baseUrl: 'http://192.168.15.14:3000',
+      baseUrl: 'http://3840b0b14b42.ngrok.io',
       connectTimeout: 5000,
     );
 

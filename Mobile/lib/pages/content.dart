@@ -2,44 +2,14 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
-class Content extends StatefulWidget {
-  @override
-  _ContentState createState() => _ContentState();
-}
-
-class _ContentState extends State<Content> {
-  var _title;
-  var _content;
-  var _photo;
-  var _count = [];
-  var _id = "2";
-  var _index= 1;
+import 'package:museu/models/Beacon.dart';
+import 'package:museu/pages/search-beacon.dart';
 
 
-  Future<String> getBeacons() async {
-    String url = 'http://192.168.15.14:3000/beacons/';
-    final response = 
-    await http.get(url + '$_id');
+class Content extends StatelessWidget {
+  final Beacon beacon;
 
-
-    var data = json.decode(response.body);
-    setState(() {
-      _title = data['content_name'];
-      _content = data['content_description'];
-      _photo = data['content'];
-    });
-
-    var secondResponse = await http.get(url);
-    var data2 = json.decode(secondResponse.body);
-
-    for (var i = 0; i < data2.length; i++) {
-      _count.add(data2[i]['id']);
-    }
-
-    _id = _count[_index];
-    _index++;
-  }
+  Content({@required this.beacon});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +20,8 @@ class _ContentState extends State<Content> {
         child: FittedBox(
           child: FloatingActionButton(
             onPressed: () {
-              getBeacons();
+              Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Search()));
               }, 
               backgroundColor: Colors.orangeAccent,
               child: Icon(Icons.search),
@@ -66,7 +37,7 @@ class _ContentState extends State<Content> {
             padding: const EdgeInsets.only(top: 18),
             child:
               Image.network(
-                  _photo,
+                  beacon.content,
                   width: 400,
                   height: 300,
                   fit: BoxFit.fitWidth,
@@ -85,7 +56,7 @@ class _ContentState extends State<Content> {
                 margin: const EdgeInsets.only(top: 5, bottom: 5),
                 padding: const EdgeInsets.only(top: 5),
                 child: Text(
-                  _title,
+                  beacon.content_name,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w800,
@@ -96,7 +67,7 @@ class _ContentState extends State<Content> {
               Container(
                 padding: const EdgeInsets.all(15),
                 child: Text(
-                  _content,
+                  beacon.content_description,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
@@ -140,11 +111,5 @@ class _ContentState extends State<Content> {
         )
       )
     );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    this.getBeacons();
   }
 }
